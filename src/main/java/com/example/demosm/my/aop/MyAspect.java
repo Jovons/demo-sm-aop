@@ -1,20 +1,21 @@
 package com.example.demosm.my.aop;
 
-import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
-@Slf4j
 @Aspect
 @Component
 public class MyAspect {
+
+    private Logger log = LoggerFactory.getLogger(MyAspect.class);
 
     @Pointcut("this(a)")
     public void businessServiceObject(BusinessService a) {};
@@ -30,12 +31,12 @@ public class MyAspect {
 
     @AfterReturning("@annotation(n)")
     public void afterReturningFromAnnotated(NeedTest n) {
-        log.info("aspect: after annotated {}", n.value());
+        log.info("aspect: after @annotation {}", n.value());
     }
 
-    @After("@args(NeedTestClass)")
-    public void afterReturningAtArgs() {
-        log.info("aspect: after @args");
-    }
+    //@After("@args(com.example.demosm.my.aop.NeedTestClass)")
+    //public void afterReturningAtArgs() {
+    //    log.info("aspect: after @args");
+    //}
 
 }

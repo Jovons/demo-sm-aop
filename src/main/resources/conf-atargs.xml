@@ -17,6 +17,5 @@
 <aop:aspectj-autoproxy proxy-target-class="true"/>
 
     <bean class="com.example.demosm.my.aop.MyAspect"/>
-    <bean class="com.example.demosm.my.aop.aop2.AtArgsAspect"/>
 
 </beans>

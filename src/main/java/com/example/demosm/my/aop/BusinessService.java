@@ -1,13 +1,15 @@
 package com.example.demosm.my.aop;
 
 import com.example.demosm.my.aop.pojo.Child;
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-@Slf4j
 @Component
 public class BusinessService {
 
+
+    private Logger log = LoggerFactory.getLogger(BusinessService.class);
 
     public void logic() {
         log.info("service");
